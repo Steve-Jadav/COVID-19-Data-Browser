@@ -1,0 +1,55 @@
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+  font-size: 0.9rem;
+  opacity: 0.3;
+}
+
+.form-control::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+  font-size: 0.9rem;
+  opacity: 0.3;
+}
+
+a.page-link {
+  color: #900C3F !important;
+  font-size: 0.9rem;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #900C3F;
+  color: white !important;
+  border-color: #900C3F;
+}
+
+#datatable_wrapper {
+  padding: 1rem;
+}
+
+#datatable td {
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: #900C3F;
+  border-color: #900C3F;
+  opacity: 0.8;
+}
+
+.btn {
+  background-color: #900C3F;
+  border-color: #900C3F;
+}
+
+
+td.details-control {
+    background: url('../images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('../images/details_close.png') no-repeat center center;
+}
+
+.smallTable:hover {
+  background-color: white !important;
+}
