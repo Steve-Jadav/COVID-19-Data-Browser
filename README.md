@@ -7,3 +7,10 @@ A web application which facilitates searching through the COVID-19 kaggle corpus
         - On-demand document summarization
         - Keywords and Key-phrases generation
         - Searching through the documents based on keywords
+
+A few notes on running this application:
+    
+    - Install all the dependencies mentioned in package.json using 'npm install <DEPENDENCY>'
+    - All the data should go in the public/data/ directory
+    - The entire corpus needs to be indexed in order to support searching (index files haven't been included in this repository because of their sizes.)
+    - Run the application using 'node app.js'.
