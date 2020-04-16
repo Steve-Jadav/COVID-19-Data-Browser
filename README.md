@@ -16,3 +16,5 @@ A few notes on running this application:
     - All the data should go in the public/data/ directory
     - The entire corpus needs to be indexed in order to support searching (index files haven't been included in this repository because of their sizes)
     - Run the application using 'node app.js'. If the application fails because of insufficient Javascript Heap Memory, run the following command: node --max-old-space-size=1024 app.js
+    - node --version = v12.16.1
+    - npm --version = 6.14.4
