@@ -6,9 +6,9 @@ A web application which facilitates searching through the COVID-19 kaggle corpus
     - This application is written using Node.js and Express.js. It helps the users search through the articles and papers present in Kaggle's COVID-19 corpus.    
     
     - A few important features of this application:
-        - [] On-demand document summarization
-        - [] Keywords and Key-phrases generation
-        - [] Searching through the documents based on keywords
+        - On-demand document summarization
+        - Keywords and Key-phrases generation
+        - Searching through the documents based on keywords
 
 A few notes on running this application:
     
@@ -19,7 +19,7 @@ A few notes on running this application:
     - node --version = v12.16.1
     - npm --version = 6.14.4
     
-Document summarization:
+Document summarization [sample](www.google.com):
     
     - The document summaries are generated using the [textrank](https://www.npmjs.com/package/textrank) 
     - This library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
