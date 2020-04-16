@@ -1,5 +1,5 @@
 # COVID-19 Data Browser
-### Technology Stack: NodeJS, ExpressJS, AJAX, HTML, CSS
+#### Technology Stack: NodeJS, ExpressJS, AJAX, HTML, CSS
 
 A web application which facilitates searching through the COVID-19 kaggle corpus. The primary purpose of this project is to provide the non-data-scientists, a way to understand the documents. However, it might also be helpful in encouraging relevant research.
 
