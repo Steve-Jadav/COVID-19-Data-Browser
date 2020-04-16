@@ -12,7 +12,7 @@ router.get("/", function(req, res, next) {
   var fileName;
   var resultdata = "";
 
-  if (source == "CZI") {
+  if (source == "CZI" || source == "PMC") {
     // Search in the comm_use_subset and the noncomm_use_subset folder.
 
     fileName = "public/data/noncomm_use_subset/noncomm_use_subset/" + sha + ".json";
@@ -46,29 +46,28 @@ router.get("/", function(req, res, next) {
 
     }
 
+    // If not found in the comm_use_subset directory, then look into pmc_custom_license
+    if (fileFound == false) {
+      fileName = "public/data/pmc_custom_license/pmc_custom_license/" + sha + ".json";
+
+      try {
+        if (fs.existsSync(fileName)) {
+          fileFound = true;
+          let rawdata = fs.readFileSync(fileName);
+          resultdata = JSON.parse(rawdata);
+        }
+      } catch (err) {
+        res.send(resultdata);
+      }
+
+    }
+
   }
 
   else if (source == "biorxiv" || source == "medrxiv") {
-    // Search from the biorxiv_medrixiv folder
+    // Search from the biorxiv_medrxiv folder
 
-    fileName = "public/data/biorxiv_medrixiv/biorxiv_medrixiv/" + sha + ".json";
-
-    try {
-      if (fs.existsSync(fileName)) {
-        fileFound = true;
-        let rawdata = fs.readFileSync(fileName);
-        resultdata = JSON.parse(rawdata);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-
-  }
-
-  else if (source == "PMC") {
-    // Search from the pmc_custom_license folder.
-
-    fileName = "public/data/pmc_custom_license/pmc_custom_license/" + sha + ".json";
+    fileName = "public/data/biorxiv_medrxiv/biorxiv_medrxiv/" + sha + ".json";
 
     try {
       if (fs.existsSync(fileName)) {
@@ -81,6 +80,7 @@ router.get("/", function(req, res, next) {
     }
 
   }
+
 
   else {
     res.send(resultdata);
