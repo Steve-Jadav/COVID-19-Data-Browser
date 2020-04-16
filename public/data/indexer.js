@@ -1,6 +1,7 @@
 /* Use this file to generate document indexes 
 These indexes not to be loaded on the server in order to
-faciliate searching through the documents. */
+faciliate searching through the documents. 
+Run node indexer.js in this directory to generate the index json files. */
 
 'use strict';
 
