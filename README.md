@@ -1,14 +1,12 @@
 # COVID-19 Data Browser
 #### Technology Stack: NodeJS, ExpressJS, AJAX, HTML, CSS, Boostrap
 
-A web application which facilitates searching through the COVID-19 kaggle corpus. The primary purpose of this project is to provide the non-data-scientists, a way to understand the documents. However, it might also be helpful in encouraging relevant research.
-
-    - This application is written using Node.js and Express.js. It helps the users search through the articles and papers present in Kaggle's COVID-19 corpus.    
+A web application which facilitates searching through the COVID-19 kaggle corpus. The primary purpose of this project is to provide the non-data-scientists, a way to understand the documents. However, it might also be helpful in encouraging relevant research.    
     
-    - A few important features of this application:
-        - On-demand document summarization
-        - Keywords and Key-phrases generation
-        - Searching through the documents based on keywords
+Important features of this application:
+    - On-demand document summarization
+    - Keywords and Key-phrases generation
+    - Searching through the documents based on keywords
 
 A few notes on running this application:
     
@@ -22,5 +20,5 @@ A few notes on running this application:
 Document summarization:
     
    - The document summaries are generated using the [textrank](https://www.npmjs.com/package/textrank) 
-   - This library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
-   - The keywords and keyphrases are generated using [retext](https://github.com/retextjs/retext-keywords) library
+   - The textrank library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
+   - The keywords and keyphrases are generated using the [retext](https://github.com/retextjs/retext-keywords) library
