@@ -3,10 +3,11 @@
 
 A web application which facilitates searching through the COVID-19 kaggle corpus. The primary purpose of this project is to provide the non-data-scientists, a way to understand the documents. However, it might also be helpful in encouraging relevant research.    
     
-##### Important features of this application:
-    - On-demand document summarization
-    - Keywords and Key-phrases generation
-    - Searching through the documents based on keywords
+#### Important features of this application:
+
+   - [x] On-demand document summarization
+   - [x] Keywords and Key-phrases generation
+   - [x] Searching through the documents based on keywords
 
 A few notes on running this application:
     
@@ -17,7 +18,7 @@ A few notes on running this application:
     - node --version = v12.16.1
     - npm --version = 6.14.4
     
-##### Document summarization:
+#### Document summarization:
     
    - The document summaries are generated using the [textrank](https://www.npmjs.com/package/textrank) 
    - The textrank library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
