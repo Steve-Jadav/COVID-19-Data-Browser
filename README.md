@@ -9,7 +9,7 @@ A web application which facilitates searching through the COVID-19 kaggle corpus
    - [x] Keywords and Key-phrases generation
    - [x] Searching through the documents based on keywords
 
-A few notes on running this application:
+#### A few notes on running this application on your local server:
     
     - Install all the dependencies mentioned in package.json using 'npm install <DEPENDENCY>'
     - All the data from Kaggle corpus (.json files) should be placed in the public/data/ directory
