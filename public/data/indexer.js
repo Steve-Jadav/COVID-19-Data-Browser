@@ -1,3 +1,7 @@
+/* Use this file to generate document indexes 
+These indexes not to be loaded on the server in order to
+faciliate searching through the documents. */
+
 'use strict';
 
 var path = require('path');
