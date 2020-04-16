@@ -21,6 +21,6 @@ A few notes on running this application:
     
 Document summarization:
     
-    - The document summaries are generated using the [textrank] (https://www.npmjs.com/package/textrank) package provided by npm 
-    - This library is an implementation of [this] (https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
-    - The keywords and keyphrases are generated using [retext] (https://github.com/retextjs/retext-keywords) library
+    - The document summaries are generated using the [textrank](https://www.npmjs.com/package/textrank) package provided by npm 
+    - This library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
+    - The keywords and keyphrases are generated using [retext](https://github.com/retextjs/retext-keywords) library
