@@ -7,7 +7,6 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-// var indexRouter = require("./routes/index"); // This route won't be executed if index.html is available
 var summarizeRouter = require("./routes/summarize");
 var textViewRouter = require("./routes/textViewer");
 var keywordSearchRouter = require("./routes/keywordSearch");
@@ -18,7 +17,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-// app.use('/', indexRouter);
 app.use("/summarize", summarizeRouter);
 app.use("/textViewer", textViewRouter);
 app.use("/keywordSearch", keywordSearchRouter);
