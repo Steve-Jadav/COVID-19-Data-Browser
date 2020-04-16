@@ -23,3 +23,4 @@ A web application which facilitates searching through the COVID-19 kaggle corpus
    - The document summaries are generated using the [textrank](https://www.npmjs.com/package/textrank) 
    - The textrank library is an implementation of [this](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf) paper
    - The keywords and keyphrases are generated using the [retext](https://github.com/retextjs/retext-keywords) library
+   - The body_text and the abstract content of the desired paper is presented to this algorithm, which then generates the summaries.
