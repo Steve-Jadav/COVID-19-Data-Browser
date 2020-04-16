@@ -2,10 +2,19 @@ $(document).ready(function () {
 
   $("#table_spinner").hide();
 
+  $('#headerVideoLink').magnificPopup({
+    type:'inline',
+    midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  });
+
   // Create the datatable from the data.
   var table = $("#datatable").DataTable({
     "deferRender": true,
     "pageLength": 25,
+    "dom": 'Bfrtip',
+    "buttons": [
+      { extend: 'csv', className: "csvButton", title: "Articles", exportOptions: { columns: [4, 1, 2, 3] }, customize: function(csv) {var csvRows = csv.split('\n'); csvRows[0] = csvRows[0].replace('""', "SHA"); return csvRows.join('\n'); } },
+      { extend: 'excel', className: "excelButton", title: "Articles", exportOptions: { columns: [4, 1, 2, 3] } } ],
     "ajax": "data/datatable.txt",
     "columns": [
       {
@@ -219,7 +228,9 @@ function format(d) {
 
     // d is the data object of the clicked row
 
-    var table = '<table id="small_table" class="smallTable" cellpadding="5" cellspacing="0" border="0" style="display: inline-block; float: left;">'+
+    var div = '<div class="container-fluid"> <div class="row"> ';
+
+    var table = '<div class="col-md-5"> <table id="small_table" class="smallTable" cellpadding="5" cellspacing="0" border="0">'+
       '<tr>' +
           '<td>Paper ID:</td>'+
           '<td>'+ d.SHA + '</td>'+
@@ -243,11 +254,11 @@ function format(d) {
       '<tr>' +
           '<td> <input type="button" id="view_text" value="View Text" class="btn btn-primary btn-sm"> </td>'+
           '<td> <input type="button" id="summarize_text" value="Summarize" class="btn btn-primary btn-sm"> </td>'+
-      '</tr>'
-    '</table>';
+      '</tr>' +
+    '</table> </div>';
 
 
-    var text = '<div id = "article" class = "container-fluid" style="width: 60%; margin-left: 1rem; overflow: scroll; display: inline-block;">' +
+    var text = '<div class = "text-center col-md-7" id="article">' +
         '<center><h5><span class="badge badge-pill badge-dark">Abstract</span></h5></center>' +
 
         '<center><div id="spinner_1" class="spinner-border spinner-border-sm text-primary" role="status" style="margin-top: 1rem;"> ' +
@@ -264,7 +275,7 @@ function format(d) {
         '</div></center>' +
 
         '<p id = "textview_body" class = "text-justify"></p>' +
-        '</div>';
+        ' </div> </div> </div>';
 
-    return table + text;
+    return div + table + text;
 }
