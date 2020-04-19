@@ -22,7 +22,6 @@ router.get('/', function(req, res, next) {
   var bestMatchFiles = [];   // Holds the top 10 relevant files from the file list
 
   for (var i = 0; i < inverted_index.length; i++) {
-    var idx = lunr.Index.load(inverted_index[i]);
     var result = idx[i].search(searchTerms);
     result.slice(0, 25).forEach(function (data) {
       bestMatchFiles.push(data.ref);
