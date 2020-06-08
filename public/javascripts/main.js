@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  $('#qna-spinner').hide();
   $("#table_spinner").hide();
 
   $('#headerVideoLink').magnificPopup({
@@ -106,12 +107,12 @@ $(document).ready(function () {
         var parameters = { "SHA": row.data().SHA,
                            "Source": row.data().Source };
 
-
-
         viewButton.addEventListener("click", function(){
 
           $('#spinner_1').show();
           $('#spinner_2').show();
+
+          parameters["searchTerms"] = keywords.value;
 
           // AJAX request to get the entire text of the required file
           $.get("/textViewer", parameters, function(data) {
@@ -154,6 +155,8 @@ $(document).ready(function () {
 
           $('#spinner_1').show();
           $('#spinner_2').show();
+
+          parameters["searchTerms"] = keywords.value;
 
           // AJAX request to get the summarized text from the server.
           $.get("/summarize", parameters, function (data) {
@@ -220,13 +223,36 @@ $(document).ready(function () {
         });
 
     } // End of else block
-});
+}); // End of datatable opening and closing block
+
+
+  // Button for querying kendra index.
+  $("#ask-button").on("click", function() {
+    $('#qna-spinner').show();
+    var query = document.getElementById("question").value.trim();
+    var parameters = { "question": query };
+
+    // AJAX request for running AWS Kendra.
+    $.get("/kendra", parameters, function(data) {
+      $('#qna-spinner').hide();
+      var resultText = "";
+      for (var i = 0; i < data["ANSWER"].length; i++) {
+        resultText += "<p><b>Answer:</b></p>" + "<p>" + data["ANSWER"][i] + "</p>";
+      }
+      for (var i = 0; i < 2; i++) {
+        resultText += "<p><b>Document Excerpt:</b></p>" + "<p>" + data["DOCUMENT"][i] + "</p>";
+      }
+      $(".results").html(resultText);
+    });
+
+  });  // End of ask-button on-click function
 
 }); // End of ready function
 
 function format(d) {
 
     // d is the data object of the clicked row
+    // We will have one row and two columns
 
     var div = '<div class="container-fluid"> <div class="row"> ';
 
