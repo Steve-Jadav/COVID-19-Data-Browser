@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="A COVID-19 article search browser">
     <meta name="keywords" content="coronavirus,COVID-19,SARS,virus,pandemic,kaggle">
-    <meta name="author:" content="Steve Jadav, The Unit for Data Science and Analytics -- Arizona State University -- ">
+    <meta name="author:" content="Steve Jadav, The Unit for Data Science and Analytics => Arizona State University">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>COVID-19 Data Browser</title>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="stylesheets/magnific-popup.css">
 
 
-    <!-- Bootstrap 4 -->
+    <!-- Bootstrap 4-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -38,8 +38,9 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
 
 
   </head>
@@ -49,16 +50,24 @@
     <nav class="navbar fixed-top navbar-light bg-light">
 
       <div class="dropdown">
+
             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               About
             </button>
 
-            <a href="#headerPopup" id="headerVideoLink" target="_blank" class="btn btn-secondary btn-sm demoButton popup-modal">Watch Video Demo</a>
+            <a href="#headerPopup" id="headerVideoLink" target="_blank" class="btn btn-secondary btn-sm demoButton popup-modal">Watch Demo Video</a>
             <div id="headerPopup" class="mfp-hide embed-responsive embed-responsive-21by9">
                 <video class="embed-responsive-item" width="854" height="480" controls allowfullscreen>
                   <source src="videos/demo.mov" type="video/mp4">
                 </video>
             </div>
+
+            <a href="https://github.com/Steve-Jadav/COVID-19-Data-Browser" target="_blank" class="btn btn-secondary btn-sm demoButton popup-modal">GitHub</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#exampleModalLong">
+              Ask Kendra
+            </button>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -86,7 +95,6 @@
             </div>
       </div>
 
-
       <form style="float:right;">
           <div class="row">
             <div class="col">
@@ -99,9 +107,45 @@
       </form>
     </nav>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">QnA Service Powered by AWS Kendra</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                  <label for="message-text" class="col-form-label">Ask a question:</label>
+                  <textarea class="form-control" id="question"></textarea>
+              </div>
+            </form>
+
+            <div class="results">
+              <center>
+                <div class="spinner-border spinner-border-sm text-warning" id="qna-spinner" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </center>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-dark" id="ask-button">Ask</button>
+            <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <br> <br>
-  
-  
     <!-- CONTENT -->
     <div>
 
@@ -143,9 +187,15 @@
 
 
     <!-- Custom Javascript -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
     <script type="text/javascript" src="javascripts/main.js"></script>
     <script type="text/javascript" src="javascripts/hilitor.js"></script>
     <script type="text/javascript" src="javascripts/magnific-popup.js"></script>
+
+
 
   </body>
 
