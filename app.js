@@ -15,7 +15,7 @@ var hit_count = 0;
 var summarizeRouter = require("./routes/summarize");
 var textViewRouter = require("./routes/textViewer");
 var kendraRouter = require("./routes/kendra");
-//var keywordSearchRouter = require("./routes/keywordSearch");
+var keywordSearchRouter = require("./routes/keywordSearch");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
