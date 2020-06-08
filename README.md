@@ -9,6 +9,7 @@ A web application which facilitates searching through the [COVID-19 Kaggle Corpu
    - [x] On-demand document summarization
    - [x] Keywords and Key-phrases generation
    - [x] Searching through the documents based on keywords
+   - [x] Question-Answering supported by AWS Kendra
 
 #### A few notes on running this application on your local server:
     
