@@ -237,10 +237,10 @@ $(document).ready(function () {
       $('#qna-spinner').hide();
       var resultText = "";
       for (var i = 0; i < data["ANSWER"].length; i++) {
-        resultText += "<p><b>Answer:</b></p>" + "<p>" + data["ANSWER"][i] + "</p>";
+        resultText += "<p><b>Answer:</b></p>" + "<p class = 'text-justify'>" + data["ANSWER"][i] + "</p>";
       }
       for (var i = 0; i < 2; i++) {
-        resultText += "<p><b>Document Excerpt:</b></p>" + "<p>" + data["DOCUMENT"][i] + "</p>";
+        resultText += "<p><b>Document Excerpt:</b></p>" + "<p class = 'text-justify'>" + data["DOCUMENT"][i] + "</p>";
       }
       $(".results").html(resultText);
     });
