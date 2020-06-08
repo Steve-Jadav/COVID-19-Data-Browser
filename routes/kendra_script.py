@@ -35,7 +35,7 @@ def query_index(index_id, query):
 
 if __name__ == "__main__":
     kendra = boto3.client("kendra")
-    index_id = "ab8b6d39-d153-4c76-b613-d0ca08481f1e"
+    index_id = "${IndexId}"
     query = sys.argv[1]
     result = query_index(index_id, query)
     print (result)
