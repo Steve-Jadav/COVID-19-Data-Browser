@@ -1,5 +1,5 @@
 # COVID-19 Data Browser
-#### Technology Stack: NodeJS, ExpressJS, AJAX, HTML, CSS, Boostrap, AWS Kendra
+#### Technology Stack: NodeJS, ExpressJS, AJAX, HTML, CSS, Boostrap, AWS Kendra, Elasticsearch
 #### [Check out the website here](https://covid19papers.org)
 
 A web application which facilitates searching through the [COVID-19 Kaggle Corpus](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge). The primary purpose of this project is to provide the non-data-scientists, a way to understand the documents. However, it might also be helpful in encouraging relevant research.    
